@@ -84,8 +84,9 @@ app.post("/availability", async (req, res) => {
   if (!date || !departure || !arrival || !adults || !triptype) {
     return res.status(400).json({ message: "Missing required fields" });
   }
+
   const token =
-    "VWlQY2g4OUJJR1M2MFcrLWpwcTYvQm8zZ3dKb3NLWWdiazZuMjhrNW5nS3BJWEQ1N2o3WHFIWjhzQXUzbmdZQmRtVFBzOW9STW9VSWVGb09zTWU1cU5iUnAycGhkSDlEMjlNbkdGZVI3TTdSUEdkend6WThEcmNDVnNlZjlYdnMzaXVmVXI4RWs3M2NZalVsSmZUUGxUaWR4eistdTdhc3llbGtaV1hVMlV6OEhqM1plRkV6NmJUQXIxL3RvR2t1Y3ZmNG82Tk4rLVphVUJ4bVh4YmVLNWNPdytBRDBBUFEt";
+    "bGZmeXBLTnVnSzJHUXlvUm9BWU1rbndPQWFMSUZFaXVrZVNhTWlmdXZEY0VhL0VUZ2gxVVREV3BtKy1vU2I2R3ZVMDdrTUhvc3lPQmtKR3NURTdnaUJLVnNpNGxReWZkcFVzVjBKU3BLOWxEU3lLVVp1RllQYVY1a1NQajdqNjA5eGFzYystSGlxak1iMDRwY1dEZUIwWTYzVGdETnFCSDBJbVBNQk1tbE5Da2JMSkJxSmd3Rmx2ZU5GVER1dDBqN1FFbVdWNzZabTFtQmt5dU92cnRFMEpRK0FEMEFQUS0=";
 
   // The body data (this should ideally be passed via req.body or be static as in your example)
   const availabilityInfo =
@@ -175,7 +176,7 @@ app.post("/fare-rules", async (req, res) => {
     return res.status(400).json({ message: "Missing required fields" });
   }
   const token =
-    "VWlQY2g4OUJJR1M2MFcrLWpwcTYvQm8zZ3dKb3NLWWdiazZuMjhrNW5nS3BJWEQ1N2o3WHFIWjhzQXUzbmdZQmRtVFBzOW9STW9VSWVGb09zTWU1cU5iUnAycGhkSDlEMjlNbkdGZVI3TTdSUEdkend6WThEcmNDVnNlZjlYdnMzaXVmVXI4RWs3M2NZalVsSmZUUGxUaWR4eistdTdhc3llbGtaV1hVMlV6OEhqM1plRkV6NmJUQXIxL3RvR2t1Y3ZmNG82Tk4rLVphVUJ4bVh4YmVLNWNPdytBRDBBUFEt";
+    "bGZmeXBLTnVnSzJHUXlvUm9BWU1rbndPQWFMSUZFaXVrZVNhTWlmdXZEY0VhL0VUZ2gxVVREV3BtKy1vU2I2R3ZVMDdrTUhvc3lPQmtKR3NURTdnaUJLVnNpNGxReWZkcFVzVjBKU3BLOWxEU3lLVVp1RllQYVY1a1NQajdqNjA5eGFzYystSGlxak1iMDRwY1dEZUIwWTYzVGdETnFCSDBJbVBNQk1tbE5Da2JMSkJxSmd3Rmx2ZU5GVER1dDBqN1FFbVdWNzZabTFtQmt5dU92cnRFMEpRK0FEMEFQUS0=";
 
   // The body data (this should ideally be passed via req.body or be static as in your example)
   const requestData = {
@@ -232,7 +233,7 @@ app.post("/pricing", async (req, res) => {
     return res.status(400).json({ message: "Missing required fields" });
   }
   const token =
-    "VWlQY2g4OUJJR1M2MFcrLWpwcTYvQm8zZ3dKb3NLWWdiazZuMjhrNW5nS3BJWEQ1N2o3WHFIWjhzQXUzbmdZQmRtVFBzOW9STW9VSWVGb09zTWU1cU5iUnAycGhkSDlEMjlNbkdGZVI3TTdSUEdkend6WThEcmNDVnNlZjlYdnMzaXVmVXI4RWs3M2NZalVsSmZUUGxUaWR4eistdTdhc3llbGtaV1hVMlV6OEhqM1plRkV6NmJUQXIxL3RvR2t1Y3ZmNG82Tk4rLVphVUJ4bVh4YmVLNWNPdytBRDBBUFEt";
+    "bGZmeXBLTnVnSzJHUXlvUm9BWU1rbndPQWFMSUZFaXVrZVNhTWlmdXZEY0VhL0VUZ2gxVVREV3BtKy1vU2I2R3ZVMDdrTUhvc3lPQmtKR3NURTdnaUJLVnNpNGxReWZkcFVzVjBKU3BLOWxEU3lLVVp1RllQYVY1a1NQajdqNjA5eGFzYystSGlxak1iMDRwY1dEZUIwWTYzVGdETnFCSDBJbVBNQk1tbE5Da2JMSkJxSmd3Rmx2ZU5GVER1dDBqN1FFbVdWNzZabTFtQmt5dU92cnRFMEpRK0FEMEFQUS0=";
 
   // The body data (this should ideally be passed via req.body or be static as in your example)
   const requestData = {
@@ -241,7 +242,7 @@ app.post("/pricing", async (req, res) => {
     Trackid: trackId,
     ItineraryInfo: itenaryInfo,
   };
-
+  console.log("Pricing request data", requestData);
   try {
     // Send the POST request to the Availability API
     const response = await fetch(
@@ -290,7 +291,7 @@ app.post("/seatmap", async (req, res) => {
     return res.status(400).json({ message: "Missing required fields" });
   }
   const token =
-    "VWlQY2g4OUJJR1M2MFcrLWpwcTYvQm8zZ3dKb3NLWWdiazZuMjhrNW5nS3BJWEQ1N2o3WHFIWjhzQXUzbmdZQmRtVFBzOW9STW9VSWVGb09zTWU1cU5iUnAycGhkSDlEMjlNbkdGZVI3TTdSUEdkend6WThEcmNDVnNlZjlYdnMzaXVmVXI4RWs3M2NZalVsSmZUUGxUaWR4eistdTdhc3llbGtaV1hVMlV6OEhqM1plRkV6NmJUQXIxL3RvR2t1Y3ZmNG82Tk4rLVphVUJ4bVh4YmVLNWNPdytBRDBBUFEt";
+    "bGZmeXBLTnVnSzJHUXlvUm9BWU1rbndPQWFMSUZFaXVrZVNhTWlmdXZEY0VhL0VUZ2gxVVREV3BtKy1vU2I2R3ZVMDdrTUhvc3lPQmtKR3NURTdnaUJLVnNpNGxReWZkcFVzVjBKU3BLOWxEU3lLVVp1RllQYVY1a1NQajdqNjA5eGFzYystSGlxak1iMDRwY1dEZUIwWTYzVGdETnFCSDBJbVBNQk1tbE5Da2JMSkJxSmd3Rmx2ZU5GVER1dDBqN1FFbVdWNzZabTFtQmt5dU92cnRFMEpRK0FEMEFQUS0=";
 
   // The body data (this should ideally be passed via req.body or be static as in your example)
   const requestData = {
@@ -345,6 +346,8 @@ app.post("/booking", async (req, res) => {
     AddressDetails,
     TripType,
     TrackId,
+    BaseOrigin,
+    BaseDestination,
   } = req.body;
   console.log(AdultCount, "Adult coint");
   console.log(ChildCount, "child count");
@@ -361,7 +364,7 @@ app.post("/booking", async (req, res) => {
     return res.status(400).json({ message: "Missing required fields" });
   }
   const token =
-    "VWlQY2g4OUJJR1M2MFcrLWpwcTYvQm8zZ3dKb3NLWWdiazZuMjhrNW5nS3BJWEQ1N2o3WHFIWjhzQXUzbmdZQmRtVFBzOW9STW9VSWVGb09zTWU1cU5iUnAycGhkSDlEMjlNbkdGZVI3TTdSUEdkend6WThEcmNDVnNlZjlYdnMzaXVmVXI4RWs3M2NZalVsSmZUUGxUaWR4eistdTdhc3llbGtaV1hVMlV6OEhqM1plRkV6NmJUQXIxL3RvR2t1Y3ZmNG82Tk4rLVphVUJ4bVh4YmVLNWNPdytBRDBBUFEt";
+    "bGZmeXBLTnVnSzJHUXlvUm9BWU1rbndPQWFMSUZFaXVrZVNhTWlmdXZEY0VhL0VUZ2gxVVREV3BtKy1vU2I2R3ZVMDdrTUhvc3lPQmtKR3NURTdnaUJLVnNpNGxReWZkcFVzVjBKU3BLOWxEU3lLVVp1RllQYVY1a1NQajdqNjA5eGFzYystSGlxak1iMDRwY1dEZUIwWTYzVGdETnFCSDBJbVBNQk1tbE5Da2JMSkJxSmd3Rmx2ZU5GVER1dDBqN1FFbVdWNzZabTFtQmt5dU92cnRFMEpRK0FEMEFQUS0=";
   // The body data (this should ideally be passed via req.body or be static as in your example)
   const requestdata = {
     AgentInfo: agentInfo,
@@ -379,10 +382,10 @@ app.post("/booking", async (req, res) => {
       GSTMobileNumber: "",
     },
     TripType: TripType === "O" ? "O" : "R",
-    BlockPNR: true,
+    BlockPNR: false,
     Faremasking: false,
-    BaseOrigin: "HYD",
-    BaseDestination: "DEL",
+    BaseOrigin: BaseOrigin,
+    BaseDestination: BaseDestination,
     TrackId: TrackId,
   };
   // res.send(requestdata);
@@ -428,7 +431,7 @@ app.post("/ticketing", async (req, res) => {
     return res.status(400).json({ message: "Missing required fields" });
   }
   const token =
-    "VWlQY2g4OUJJR1M2MFcrLWpwcTYvQm8zZ3dKb3NLWWdiazZuMjhrNW5nS3BJWEQ1N2o3WHFIWjhzQXUzbmdZQmRtVFBzOW9STW9VSWVGb09zTWU1cU5iUnAycGhkSDlEMjlNbkdGZVI3TTdSUEdkend6WThEcmNDVnNlZjlYdnMzaXVmVXI4RWs3M2NZalVsSmZUUGxUaWR4eistdTdhc3llbGtaV1hVMlV6OEhqM1plRkV6NmJUQXIxL3RvR2t1Y3ZmNG82Tk4rLVphVUJ4bVh4YmVLNWNPdytBRDBBUFEt";
+    "bGZmeXBLTnVnSzJHUXlvUm9BWU1rbndPQWFMSUZFaXVrZVNhTWlmdXZEY0VhL0VUZ2gxVVREV3BtKy1vU2I2R3ZVMDdrTUhvc3lPQmtKR3NURTdnaUJLVnNpNGxReWZkcFVzVjBKU3BLOWxEU3lLVVp1RllQYVY1a1NQajdqNjA5eGFzYystSGlxak1iMDRwY1dEZUIwWTYzVGdETnFCSDBJbVBNQk1tbE5Da2JMSkJxSmd3Rmx2ZU5GVER1dDBqN1FFbVdWNzZabTFtQmt5dU92cnRFMEpRK0FEMEFQUS0=";
   // The body data (this should ideally be passed via req.body or be static as in your example)
   const requestdata = {
     AgentInfo: agentInfo,
